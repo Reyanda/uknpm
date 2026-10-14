@@ -117,8 +117,16 @@ calculate_npm <- function(energy_kj = NULL,
                           protein_g = 0,
                           is_drink = FALSE,
                           is_cheese = FALSE,
-                          model = c("2004_2005", "2018")) {
+                          model = c("2004_2005", "2018"),
+                          version = NULL) {
   fibre_method <- match.arg(fibre_method)
+  if (!is.null(version)) {
+    if (version %in% c("2004", "2004_2005")) {
+      model <- "2004_2005"
+    } else if (version %in% c("2018")) {
+      model <- "2018"
+    }
+  }
   model <- match.arg(model)
 
   # Derive maximum vector length across all inputs

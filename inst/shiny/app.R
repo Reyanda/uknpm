@@ -91,7 +91,7 @@ ui <- fluidPage(
 
               fluidRow(
                 column(6, selectInput("item_type", "Product Type", choices = c("Food" = "food", "Drink" = "drink"), selected = "food")),
-                column(6, selectInput("npm_version", "Model Version", choices = c("2004/2005 (Statutory)" = "2004", "2018 (Consultation)" = "2018"), selected = "2004"))
+                column(6, selectInput("npm_version", "Model Version", choices = c("2004/2005 (Statutory)" = "2004_2005", "2018 (Consultation)" = "2018"), selected = "2004_2005"))
               ),
 
               fluidRow(
@@ -351,7 +351,7 @@ server <- function(input, output, session) {
   # Preset handlers
   observeEvent(input$preset_fromage, {
     updateSelectInput(session, "item_type", selected = "food")
-    updateSelectInput(session, "npm_version", selected = "2004")
+    updateSelectInput(session, "npm_version", selected = "2004_2005")
     updateNumericInput(session, "energy_kj", value = 459)
     updateNumericInput(session, "portion_g", value = 100)
     updateNumericInput(session, "fat_g", value = 2.5)
@@ -366,7 +366,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$preset_icecream, {
     updateSelectInput(session, "item_type", selected = "food")
-    updateSelectInput(session, "npm_version", selected = "2004")
+    updateSelectInput(session, "npm_version", selected = "2004_2005")
     updateNumericInput(session, "energy_kj", value = 741)
     updateNumericInput(session, "portion_g", value = 75)
     updateNumericInput(session, "fat_g", value = 10.2)
@@ -381,7 +381,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$preset_soup, {
     updateSelectInput(session, "item_type", selected = "food")
-    updateSelectInput(session, "npm_version", selected = "2004")
+    updateSelectInput(session, "npm_version", selected = "2004_2005")
     updateNumericInput(session, "energy_kj", value = 155)
     updateNumericInput(session, "portion_g", value = 250)
     updateNumericInput(session, "fat_g", value = 0.8)
@@ -396,7 +396,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$preset_cereal_bar, {
     updateSelectInput(session, "item_type", selected = "food")
-    updateSelectInput(session, "npm_version", selected = "2004")
+    updateSelectInput(session, "npm_version", selected = "2004_2005")
     updateNumericInput(session, "energy_kj", value = 1485)
     updateNumericInput(session, "portion_g", value = 35)
     updateNumericInput(session, "fat_g", value = 6.5)
@@ -411,7 +411,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$preset_burger, {
     updateSelectInput(session, "item_type", selected = "food")
-    updateSelectInput(session, "npm_version", selected = "2004")
+    updateSelectInput(session, "npm_version", selected = "2004_2005")
     updateNumericInput(session, "energy_kj", value = 1120)
     updateNumericInput(session, "portion_g", value = 210)
     updateNumericInput(session, "fat_g", value = 16.0)
@@ -426,7 +426,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$preset_cola, {
     updateSelectInput(session, "item_type", selected = "drink")
-    updateSelectInput(session, "npm_version", selected = "2004")
+    updateSelectInput(session, "npm_version", selected = "2004_2005")
     updateNumericInput(session, "energy_kj", value = 180)
     updateNumericInput(session, "portion_g", value = 330)
     updateNumericInput(session, "fat_g", value = 0.0)
@@ -443,6 +443,7 @@ server <- function(input, output, session) {
   current_npm <- reactive({
     sodium_mg <- (input$salt_g / 2.5) * 1000
     is_drk <- input$item_type == "drink"
+    model_choice <- if (input$npm_version == "2018") "2018" else "2004_2005"
 
     uknpm::calculate_npm(
       energy_kj = input$energy_kj,
@@ -454,7 +455,7 @@ server <- function(input, output, session) {
       protein_g = input$protein_g,
       is_drink = is_drk,
       fibre_method = input$fibre_method,
-      version = input$npm_version,
+      model = model_choice,
       is_cheese = input$is_cheese
     )
   })
