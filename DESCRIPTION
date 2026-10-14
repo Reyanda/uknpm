@@ -30,6 +30,9 @@ Suggests:
     testthat (>= 3.0.0),
     knitr,
     rmarkdown,
-    svglite
+    svglite,
+    shiny,
+    bslib,
+    DT
 Config/testthat/edition: 3
 VignetteBuilder: knitr

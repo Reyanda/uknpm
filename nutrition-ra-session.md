@@ -34,15 +34,17 @@ Design, implement, document, and test a robust, fully-featured, CRAN-quality R p
 
 11. **Visualization Engine & Inspiration Doctrines**: Implemented `plot_healthiness_comparison()`, `plot_mtl_profile()`, `plot_npm_scatter()`, and `plot_npm_flowchart()`. Integrated the ATNi, Vellum, and Flowchart design doctrines into package architecture and documentation.
 12. **Public GitHub Repository & Release**: Created and published public GitHub repository `Reyanda/uknpm`, configured multi-platform GitHub Actions CI, and minted tag `v0.1.0` and GitHub Release.
+13. **Apple-Polished Interactive Shiny Application**: Designed and implemented interactive Shiny app (`inst/shiny/app.R`, `inst/shiny/www/apple-style.css`, and `run_app()`) incorporating Apple Human Interface Guidelines: SF Pro typography, frosted glass header, segmented pill navigation, clean card elevations, live MTL lozenges, and interactive Tan et al. (2025) portfolio benchmark explorer.
 
 ## Verification Evidence
-- `devtools::test()`: 141/141 tests passing across 5 suites.
+- `devtools::test()`: 145/145 tests passing across 6 suites (including `test-app.R`).
   - Matches all 6 official DHSC 2011 worked examples (fromage frais, vanilla ice cream, powdered milkshake, tomato cup soup, cereal bar with dried fruit calculation, fruit juice drink).
   - Matches official DHSC 2018 worked examples (oat dairy alternative, passion fruit yoghurt drink).
   - Validates Front-of-Pack Multiple Traffic Light (MTL) 100g and portion size thresholds.
   - Validates SDIL levy tiers, OHID 2024 salt reduction targets, sugar targets, and calorie reduction guidelines.
   - Validates integrated menu healthiness assessment replicating Tan et al. (2025).
   - Validates publication-grade visualization plotting and Mermaid flowchart generation.
+  - Validates interactive Shiny application parsing and launcher exports.
 - `devtools::check()`: 0 errors, 0 warnings.
 - `R CMD build` and `R CMD INSTALL .`: Clean build and install of `uknpm_0.1.0`.
 - **GitHub Repository**: Live at `https://github.com/Reyanda/uknpm` (Release `v0.1.0`).

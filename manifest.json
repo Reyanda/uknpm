@@ -127,6 +127,26 @@
       "path": ".github/workflows/R-CMD-check.yaml",
       "type": "ci_workflow",
       "description": "Multi-platform GitHub Actions CI matrix running R CMD check"
+    },
+    {
+      "path": "R/app.R",
+      "type": "r_source",
+      "description": "Launcher function run_app() for the interactive Shiny application"
+    },
+    {
+      "path": "inst/shiny/app.R",
+      "type": "shiny_app",
+      "description": "Interactive Shiny web application styled with the Apple design system"
+    },
+    {
+      "path": "inst/shiny/www/apple-style.css",
+      "type": "css_stylesheet",
+      "description": "Apple-inspired stylesheet with SF Pro typography, frosted glass, and refined cards"
+    },
+    {
+      "path": "tests/testthat/test-app.R",
+      "type": "r_test",
+      "description": "Unit tests for Shiny application files and launcher function"
     }
   ]
 }

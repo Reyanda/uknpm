@@ -1,0 +1,456 @@
+/**
+ * uknpm Shiny Application - Apple Design System
+ * Inspired by Apple Human Interface Guidelines and world-class design systems
+ */
+
+:root {
+  --color-canvas: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-surface-translucent: rgba(255, 255, 255, 0.82);
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-text-tertiary: #86868b;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-subtle: rgba(0, 0, 0, 0.04);
+  --color-accent: #0071e3;
+  --color-accent-hover: #0077ed;
+  --color-accent-light: rgba(0, 113, 227, 0.08);
+  
+  /* Status Colors */
+  --color-green: #34c759;
+  --color-green-bg: #e8f8ed;
+  --color-green-text: #1d7335;
+  --color-amber: #ff9500;
+  --color-amber-bg: #fff6e6;
+  --color-amber-text: #945300;
+  --color-red: #ff3b30;
+  --color-red-bg: #ffebeb;
+  --color-red-text: #b31b14;
+
+  /* Typography */
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 980px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 12px 32px -4px rgba(0, 0, 0, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+  --shadow-popover: 0 20px 40px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Base page setup */
+body {
+  font-family: var(--font-system);
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+/* Glassmorphism Header */
+.apple-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--color-surface-translucent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.apple-header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.apple-logo-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: #1d1d1f;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+}
+
+.apple-header-text h1 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.apple-header-text p {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--color-text-tertiary);
+}
+
+.apple-header-badge {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Main Container */
+.apple-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 28px 60px 28px;
+}
+
+/* Segmented Control Navigation */
+.apple-nav-segmented {
+  display: flex;
+  background: #e5e5ea;
+  padding: 3px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.nav-pills .nav-link {
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  border-radius: 9px;
+  padding: 8px 18px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.01em;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+  background: #ffffff;
+  color: var(--color-text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Cards & Surfaces */
+.apple-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  margin-bottom: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apple-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.apple-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.apple-card-subtitle {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+/* Stat Metrics Grid */
+.apple-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.apple-metric-tile {
+  background: var(--color-canvas);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.apple-metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+  margin-bottom: 4px;
+}
+
+.apple-metric-value {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+}
+
+.apple-metric-subtext {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* Traffic Light Pills / Status Badges */
+.badge-hfss {
+  background: var(--color-red-bg);
+  color: var(--color-red-text);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-healthy {
+  background: var(--color-green-bg);
+  color: var(--color-green-text);
+  border: 1px solid rgba(52, 199, 89, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Front-of-Pack Traffic Light Lozenge Set */
+.mtl-lozenge-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.mtl-lozenge {
+  flex: 1;
+  min-width: 85px;
+  max-width: 120px;
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.mtl-lozenge-nutrient {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  letter-spacing: 0.03em;
+}
+
+.mtl-lozenge-amount {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.mtl-lozenge-unit {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.mtl-lozenge-traffic {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.mtl-green {
+  background: var(--color-green-bg);
+  color: var(--color-green-text);
+}
+.mtl-green .mtl-lozenge-traffic {
+  background: var(--color-green);
+  color: #ffffff;
+}
+
+.mtl-amber {
+  background: var(--color-amber-bg);
+  color: var(--color-amber-text);
+}
+.mtl-amber .mtl-lozenge-traffic {
+  background: var(--color-amber);
+  color: #ffffff;
+}
+
+.mtl-red {
+  background: var(--color-red-bg);
+  color: var(--color-red-text);
+}
+.mtl-red .mtl-lozenge-traffic {
+  background: var(--color-red);
+  color: #ffffff;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label, label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control, .selectize-input {
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid #d1d1d6 !important;
+  background-color: #ffffff !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-system) !important;
+  font-size: 14px !important;
+  padding: 8px 12px !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.form-control:focus, .selectize-input.focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2) !important;
+  outline: none !important;
+}
+
+/* Buttons */
+.btn-apple-primary {
+  background: var(--color-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-apple-primary:hover {
+  background: var(--color-accent-hover) !important;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3) !important;
+}
+
+.btn-apple-secondary {
+  background: #e5e5ea !important;
+  color: var(--color-text-primary) !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 8px 18px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-apple-secondary:hover {
+  background: #d1d1d6 !important;
+}
+
+/* Preset Pills */
+.preset-pills-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.btn-preset {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.btn-preset:hover {
+  background: #e8e8ed;
+  border-color: #c7c7cc;
+}
+
+/* Sliders */
+.irs--shiny .irs-bar {
+  background: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+}
+.irs--shiny .irs-handle {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+}
+.irs--shiny .irs-from, .irs--shiny .irs-to, .irs--shiny .irs-single {
+  background: var(--color-text-primary) !important;
+}
+
+/* Clean DataTables styling */
+table.dataTable {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  font-size: 13px !important;
+}
+
+table.dataTable thead th {
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--color-text-secondary) !important;
+  font-weight: 600 !important;
+  padding: 10px 14px !important;
+  background-color: var(--color-canvas) !important;
+}
+
+table.dataTable tbody td {
+  padding: 10px 14px !important;
+  border-bottom: 1px solid var(--color-border-subtle) !important;
+  color: var(--color-text-primary) !important;
+}
+
+table.dataTable tbody tr:hover {
+  background-color: rgba(0, 113, 227, 0.03) !important;
+}

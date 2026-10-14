@@ -7,5 +7,6 @@
 * Implemented UK Calorie, Salt, and Sugar Reduction Programme targets and Soft Drinks Industry Levy (SDIL) thresholds (`calculate_sdil()`, `check_salt_target()`, `check_sugar_target()`, `check_calorie_guideline()`).
 * Implemented multi-metric integrated healthiness evaluation engine (`assess_healthiness()`, `summarise_healthiness()`) reproducing the empirical methodology of Tan et al. (2025).
 * Implemented publication-grade visualization suite (`plot_healthiness_comparison()`, `plot_mtl_profile()`, `plot_npm_scatter()`, `plot_npm_flowchart()`) inspired by ATNi, Vellum, and Flowchart design doctrines.
+* Added interactive Shiny web application with Apple design system polish (`run_app()`, `inst/shiny/app.R`, `inst/shiny/www/apple-style.css`).
 * Built-in datasets: `npm_worked_examples`, `sample_ooh_menu`, `ohid_salt_targets_2024`, `ohid_sugar_targets`, and `ohid_calorie_guidelines`.
-* Complete test suite with 141 unit tests covering all DHSC official worked examples and edge cases.
+* Complete test suite with 145 unit tests covering all DHSC official worked examples, edge cases, and Shiny application parsing.

@@ -185,6 +185,22 @@ p4 <- plot_npm_flowchart(format = "ggplot")
 
 ---
 
+## 6. Interactive Shiny Web Application
+
+`uknpm` includes an interactive web application designed with the **Apple Human Interface Guidelines** (SF Pro typography, frosted glass headers, segmented controls, clean elevated card surfaces, and live Multiple Traffic Light lozenges):
+
+```r
+# Launch the interactive web application
+uknpm::run_app()
+```
+
+Features include:
+- **Single Item Profiler**: Adjust sliders for energy, fat, saturates, sugars, salt, fibre, and protein to see real-time NPM scores, HFSS regulatory flags, and front-of-pack traffic lights. Includes 1-click presets for official DHSC worked examples.
+- **Portfolio & Menu Benchmarking**: Interactively explore multi-metric healthiness across out-of-home menus (reproducing Tan et al., 2025) with dynamic ATNi and Vellum plots.
+- **Statutory Standards & Flowchart**: Interactive browser for OHID 2024 salt reduction targets across 84 categories, calorie caps, and the statutory decision tree.
+
+---
+
 ## Built-In Reference Datasets
 
 - `ohid_salt_targets_2024`: Authoritative OHID 2024 salt reduction targets across 84 categories and out-of-home dish caps.
