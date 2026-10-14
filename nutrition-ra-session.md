@@ -33,6 +33,7 @@ Design, implement, document, and test a robust, fully-featured, CRAN-quality R p
 10. **Documentation & Validation**: Generated documentation via roxygen2, built vignette/README, ran `devtools::check()` (0 errors, 0 warnings).
 
 11. **Visualization Engine & Inspiration Doctrines**: Implemented `plot_healthiness_comparison()`, `plot_mtl_profile()`, `plot_npm_scatter()`, and `plot_npm_flowchart()`. Integrated the ATNi, Vellum, and Flowchart design doctrines into package architecture and documentation.
+12. **Public GitHub Repository & Release**: Created and published public GitHub repository `Reyanda/uknpm`, configured multi-platform GitHub Actions CI, and minted tag `v0.1.0` and GitHub Release.
 
 ## Verification Evidence
 - `devtools::test()`: 141/141 tests passing across 5 suites.
@@ -44,3 +45,4 @@ Design, implement, document, and test a robust, fully-featured, CRAN-quality R p
   - Validates publication-grade visualization plotting and Mermaid flowchart generation.
 - `devtools::check()`: 0 errors, 0 warnings.
 - `R CMD build` and `R CMD INSTALL .`: Clean build and install of `uknpm_0.1.0`.
+- **GitHub Repository**: Live at `https://github.com/Reyanda/uknpm` (Release `v0.1.0`).
