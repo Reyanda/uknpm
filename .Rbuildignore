@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^nutrition-ra-.*\.md$
+^manifest\.json$
+^\.git$
+^\.gitignore$
+^LICENSE\.md$
+^data-raw$

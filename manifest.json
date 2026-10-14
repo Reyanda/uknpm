@@ -1,0 +1,106 @@
+{
+  "project_name": "nutrition-ra-uknpm",
+  "project_description": "Comprehensive R package (uknpm) implementing UK dietary and food healthiness assessment models: UK Nutrient Profile Model (NPM 2004/2005 & 2018), Multiple Traffic Light Labelling (MTL), and UK Calorie, Salt, and Sugar Reduction Programme targets and SDIL levy thresholds",
+  "version": "0.1.0",
+  "governance": {
+    "core": "~/.agents/CORE.md",
+    "authoring": "~/.agents/AUTHORING.md",
+    "anti_sprawl": {
+      "folder_budget": 10,
+      "canonical_database": "data/sample_ooh_menu.rda",
+      "phase_entrypoints": {
+        "npm": "R/npm.R",
+        "mtl": "R/mtl.R",
+        "reduction": "R/reduction_programmes.R",
+        "assessment": "R/assess_healthiness.R"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "manifest.json",
+      "type": "governance_manifest",
+      "description": "Canonical project manifest declaring all repository artifacts"
+    },
+    {
+      "path": "nutrition-ra-session.md",
+      "type": "project_session",
+      "description": "Active session record with host identity, work ledger, and verification receipts"
+    },
+    {
+      "path": "nutrition-ra-plan.md",
+      "type": "project_plan",
+      "description": "Project implementation plan, stable step IDs, and acceptance criteria"
+    },
+    {
+      "path": "nutrition-ra-research.md",
+      "type": "project_research",
+      "description": "Nutritional epidemiology and regulatory policy research evidence ledger"
+    },
+    {
+      "path": "DESCRIPTION",
+      "type": "r_package_metadata",
+      "description": "R package DESCRIPTION file for uknpm"
+    },
+    {
+      "path": "NAMESPACE",
+      "type": "r_package_namespace",
+      "description": "R package exported symbols and imports"
+    },
+    {
+      "path": "R/npm.R",
+      "type": "r_source",
+      "description": "Implementation of UK Nutrient Profile Model (2004/2005 and 2018 versions)"
+    },
+    {
+      "path": "R/mtl.R",
+      "type": "r_source",
+      "description": "Implementation of UK Multiple Traffic Light (MTL) front-of-pack labelling system"
+    },
+    {
+      "path": "R/reduction_programmes.R",
+      "type": "r_source",
+      "description": "Implementation of UK sugar, salt, and calorie reduction targets and SDIL thresholds"
+    },
+    {
+      "path": "R/assess_healthiness.R",
+      "type": "r_source",
+      "description": "Integrated multi-metric healthiness evaluation engine comparing candidate assessment approaches"
+    },
+    {
+      "path": "R/fvns.R",
+      "type": "r_source",
+      "description": "Fruit, vegetables, nuts and seeds (FVNS) percentage calculation utilities"
+    },
+    {
+      "path": "R/data.R",
+      "type": "r_source",
+      "description": "Documentation for package datasets (OHID targets, guidelines, worked examples, sample menu)"
+    },
+    {
+      "path": "tests/testthat/test-npm.R",
+      "type": "r_test",
+      "description": "Unit tests for UK NPM calculations against official DHSC 2011 and 2018 worked examples"
+    },
+    {
+      "path": "tests/testthat/test-mtl.R",
+      "type": "r_test",
+      "description": "Unit tests for Multiple Traffic Light labelling against DHSC front-of-pack guidelines"
+    },
+    {
+      "path": "tests/testthat/test-reduction.R",
+      "type": "r_test",
+      "description": "Unit tests for salt, sugar, calorie reduction targets and SDIL levy thresholds"
+    },
+    {
+      "path": "tests/testthat/test-assess.R",
+      "type": "r_test",
+      "description": "Unit tests for integrated multi-metric assessment and menu evaluation"
+    },
+    {
+      "path": "README.md",
+      "type": "documentation",
+      "description": "Comprehensive user guide, API documentation, and methodological tutorial"
+    }
+  ]
+}

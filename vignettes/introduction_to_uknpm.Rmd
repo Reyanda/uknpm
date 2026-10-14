@@ -1,0 +1,126 @@
+---
+title: "Introduction to uknpm: UK Nutrient Profile Model and Healthiness Assessment"
+author: "Geoffrey Manda"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to uknpm: UK Nutrient Profile Model and Healthiness Assessment}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Overview
+
+The `uknpm` package provides an implementation of UK nutritional profiling models, front-of-pack labelling frameworks, and voluntary/mandatory food reformulation programmes:
+
+1. **UK Nutrient Profile Model (NPM 2004/2005 & 2018)**: The statutory scoring model (DHSC 2011 Technical Guidance) used for Ofcom television advertising restrictions, online marketing bans, and retail promotion/placement restrictions (HFSS legislation).
+2. **Multiple Traffic Light (MTL) Labelling**: Front-of-pack traffic light color criteria (Green, Amber, Red) based on DHSC (2013/2016) guidance.
+3. **UK Reduction Programmes and Levy**: The Soft Drinks Industry Levy (SDIL) thresholds, OHID 2024 salt reduction targets, sugar reduction targets, and calorie guidelines.
+4. **Integrated Assessment**: Multi-metric evaluation and comparative reporting for out-of-home (OOH) restaurant menus and retail food datasets, reproducing the methodology in Tan et al. (2025).
+
+```{r setup}
+library(uknpm)
+```
+
+## 1. Calculating NPM Scores and HFSS Status
+
+Under the UK NPM, points are calculated per 100g:
+- **'A' points**: negative components (Energy, Saturated fat, Total sugars, Sodium/Salt).
+- **'C' points**: positive components (Fruit, vegetables, nuts, seeds, Fibre, Protein).
+- **Protein Cap**: If Total A $\ge$ 11, protein points are only counted if Fruit, Vegetables, and Nuts (FVN) points equal 5 (or if the food is cheese with `is_cheese = TRUE`).
+
+Foods scoring $\ge 4$ and drinks scoring $\ge 1$ are classified as **less healthy** (HFSS).
+
+### Worked Example: Fruit Fromage Frais (DHSC 2011 Example 1)
+
+```{r}
+fromage_frais <- calculate_npm(
+  energy_kj = 459,
+  sat_fat_g = 1.8,
+  sugars_g = 13.4,
+  sodium_mg = 0,
+  fvns_pct = 8,
+  fibre_g = 0.6,
+  protein_g = 6.5,
+  is_drink = FALSE,
+  fibre_method = "aoac"
+)
+
+fromage_frais[, c("points_a", "points_c", "npm_score", "is_hfss", "healthiness")]
+```
+
+### Worked Example: Vanilla Ice Cream (DHSC 2011 Example 2)
+
+```{r}
+ice_cream <- calculate_npm(
+  energy_kj = 741,
+  sat_fat_g = 6.1,
+  sugars_g = 18.7,
+  sodium_mg = 60,
+  fvns_pct = 0,
+  fibre_g = 0,
+  protein_g = 3.6,
+  is_drink = FALSE,
+  fibre_method = "nsp"
+)
+
+ice_cream[, c("points_a", "protein_allowed", "points_c", "npm_score", "is_hfss")]
+```
+
+## 2. Front-of-Pack Multiple Traffic Light (MTL) Labelling
+
+The `calculate_mtl()` function assigns Green, Amber, or Red lights for total fat, saturates, total sugars, and salt:
+
+```{r}
+mtl_sample <- calculate_mtl(
+  fat_g = 16.0,
+  sat_fat_g = 3.5,
+  sugars_g = 12.0,
+  salt_g = 1.2,
+  portion_g = 150,
+  is_drink = FALSE
+)
+
+mtl_sample
+```
+
+## 3. UK Reduction Programmes and Levy
+
+### Soft Drinks Industry Levy (SDIL)
+
+```{r}
+drinks_sugars <- c(3.2, 5.5, 9.8)
+calculate_sdil(sugars_g_100ml = drinks_sugars)
+```
+
+### Salt Reduction Targets (2024)
+
+```{r}
+check_salt_target(salt_g_100g = c(0.80, 0.95, 1.20), category = "Bread")
+```
+
+## 4. Multi-Metric Menu Evaluation (Tan et al., 2025)
+
+```{r}
+# Evaluate the built-in out-of-home menu dataset
+assessment <- assess_healthiness(sample_ooh_menu)
+
+# Compare candidate healthiness approaches
+summary_table <- summarise_healthiness(assessment)
+knitr::kable(summary_table, caption = "Healthiness Comparison Across Candidate UK Approaches")
+```
+
+## References
+
+1. Department of Health and Social Care (2011). *Nutrient Profiling Technical Guidance*.
+2. Department of Health and Social Care (2018). *Nutrient Profiling Model 2018: Technical Guidance*.
+3. Department of Health, FSA, FSS, Welsh Gov (2016). *Guide to creating a front of pack (FoP) nutrition label for pre-packed products*.
+4. Office for Health Improvement and Disparities (2020). *Salt reduction targets for 2024*.
+5. Tan M, Pham H, Pombo-Rodrigues S, Hashem KM, Shiach A, Barakat NA (2025). *Nutritional composition and healthiness of out-of-home food and drink: cross-sectional and retrospective longitudinal analyses of best-selling menu items in the UK, 2021-2023/24*. Proceedings of the Nutrition Society, 84(OCE3), E208.

@@ -1,0 +1,32 @@
+Package: uknpm
+Title: UK Nutrient Profile Model and Healthiness Assessment Approaches
+Version: 0.1.0
+Authors@R: c(
+    person("Geoffrey", "Manda", email = "author@example.com", role = c("aut", "cre")),
+    person("Nutrition Research", role = "cph")
+  )
+Description: Comprehensive implementation of UK food and beverage healthiness
+    assessment models and statutory regulatory frameworks. Includes the UK
+    Nutrient Profile Model (NPM 2004/2005 Technical Guidance 2011 and NPM 2018
+    consultation draft) for classifying foods and drinks as High in Fat, Salt,
+    or Sugar (HFSS) under advertising, placement, and promotional restrictions.
+    Also provides front-of-pack Multiple Traffic Light (MTL) labelling (DHSC
+    2013/2016), UK calorie, salt, and sugar reduction programme targets (PHE /
+    OHID 2024), Soft Drinks Industry Levy (SDIL) thresholds, and integrated
+    multi-metric healthiness evaluation for out-of-home and retail nutrition
+    datasets.
+License: MIT + file LICENSE
+URL: https://github.com/nutrition-ra/uknpm
+BugReports: https://github.com/nutrition-ra/uknpm/issues
+Encoding: UTF-8
+LazyData: true
+LazyDataCompression: xz
+RoxygenNote: 8.0.0
+Depends:
+    R (>= 3.5.0)
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+Config/testthat/edition: 3
+VignetteBuilder: knitr
