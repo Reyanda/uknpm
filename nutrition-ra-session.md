@@ -32,12 +32,15 @@ Design, implement, document, and test a robust, fully-featured, CRAN-quality R p
 9. **Unit Testing**: Implemented testthat test suites verifying all calculations against official DHSC worked examples (133 tests passed, 0 failures, 0 skips).
 10. **Documentation & Validation**: Generated documentation via roxygen2, built vignette/README, ran `devtools::check()` (0 errors, 0 warnings).
 
+11. **Visualization Engine & Inspiration Doctrines**: Implemented `plot_healthiness_comparison()`, `plot_mtl_profile()`, `plot_npm_scatter()`, and `plot_npm_flowchart()`. Integrated the ATNi, Vellum, and Flowchart design doctrines into package architecture and documentation.
+
 ## Verification Evidence
-- `devtools::test()`: 133/133 tests passing.
+- `devtools::test()`: 141/141 tests passing across 5 suites.
   - Matches all 6 official DHSC 2011 worked examples (fromage frais, vanilla ice cream, powdered milkshake, tomato cup soup, cereal bar with dried fruit calculation, fruit juice drink).
   - Matches official DHSC 2018 worked examples (oat dairy alternative, passion fruit yoghurt drink).
   - Validates Front-of-Pack Multiple Traffic Light (MTL) 100g and portion size thresholds.
   - Validates SDIL levy tiers, OHID 2024 salt reduction targets, sugar targets, and calorie reduction guidelines.
   - Validates integrated menu healthiness assessment replicating Tan et al. (2025).
+  - Validates publication-grade visualization plotting and Mermaid flowchart generation.
 - `devtools::check()`: 0 errors, 0 warnings.
-- `R CMD build`: Clean build of `uknpm_0.1.0.tar.gz`.
+- `R CMD build` and `R CMD INSTALL .`: Clean build and install of `uknpm_0.1.0`.

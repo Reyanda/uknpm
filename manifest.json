@@ -12,8 +12,14 @@
         "npm": "R/npm.R",
         "mtl": "R/mtl.R",
         "reduction": "R/reduction_programmes.R",
-        "assessment": "R/assess_healthiness.R"
+        "assessment": "R/assess_healthiness.R",
+        "visualisation": "R/visualisations.R"
       }
+    },
+    "inspiration_list": {
+      "atni": "Access to Nutrition Initiative: white/neutral ground, black typography, flat editorial color blocks (#9658AD, #0099D9, #3F783F, #ECC441, #EE952F, #B63735), portfolio healthiness benchmarking, direct labelling",
+      "vellum": "Academic publishing visual engine: strict publication geometry, physical dimensions, clean typography without decorative badges/slogans, high-contrast data-ink, vector export",
+      "flowchart": "PRISMA and algorithmic decision-tree diagrams: transparent step-by-step scoring pipelines, node count conservation, clear connector routing without collisions"
     }
   },
   "files": [
@@ -68,6 +74,11 @@
       "description": "Integrated multi-metric healthiness evaluation engine comparing candidate assessment approaches"
     },
     {
+      "path": "R/visualisations.R",
+      "type": "r_source",
+      "description": "Publication-grade visualization functions (ATNi, Vellum, and Flowchart styles) for healthiness and profiling"
+    },
+    {
       "path": "R/fvns.R",
       "type": "r_source",
       "description": "Fruit, vegetables, nuts and seeds (FVNS) percentage calculation utilities"
@@ -96,6 +107,11 @@
       "path": "tests/testthat/test-assess.R",
       "type": "r_test",
       "description": "Unit tests for integrated multi-metric assessment and menu evaluation"
+    },
+    {
+      "path": "tests/testthat/test-visualisations.R",
+      "type": "r_test",
+      "description": "Unit tests for publication-grade visualization functions"
     },
     {
       "path": "README.md",

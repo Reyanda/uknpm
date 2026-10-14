@@ -24,9 +24,12 @@ LazyDataCompression: xz
 RoxygenNote: 8.0.0
 Depends:
     R (>= 3.5.0)
+Imports:
+    ggplot2
 Suggests:
     testthat (>= 3.0.0),
     knitr,
-    rmarkdown
+    rmarkdown,
+    svglite
 Config/testthat/edition: 3
 VignetteBuilder: knitr
