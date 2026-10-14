@@ -163,6 +163,25 @@ Output:
 
 ---
 
+## 5. Publication Visualisations
+
+The package includes a publication-grade plotting suite inspired by **ATNi**, **Vellum**, and **Flowchart** design doctrines:
+
+- `plot_healthiness_comparison(assessment, style = "atni")`: Comparative horizontal stacked bar chart showing portfolio healthiness across candidate frameworks.
+- `plot_mtl_profile(assessment, style = "atni")`: Multiple Traffic Light distribution across fat, sat fat, sugars, and salt.
+- `plot_npm_scatter(assessment, style = "vellum")`: High-contrast data-ink scatter plot of Total A vs Total C points with statutory food ($A - C = 4$) and drink ($A - C = 1$) cutoff lines.
+- `plot_npm_flowchart(format = "ggplot")`: Complete statutory decision tree flowchart for DHSC scoring.
+
+```r
+# Generate all publication figures
+p1 <- plot_healthiness_comparison(assessment, style = "atni")
+p2 <- plot_mtl_profile(assessment, style = "atni")
+p3 <- plot_npm_scatter(assessment, style = "vellum")
+p4 <- plot_npm_flowchart(format = "ggplot")
+```
+
+---
+
 ## Built-In Reference Datasets
 
 - `ohid_salt_targets_2024`: Authoritative OHID 2024 salt reduction targets across 84 categories and out-of-home dish caps.

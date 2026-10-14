@@ -117,6 +117,11 @@
       "path": "README.md",
       "type": "documentation",
       "description": "Comprehensive user guide, API documentation, and methodological tutorial"
+    },
+    {
+      "path": "NEWS.md",
+      "type": "documentation",
+      "description": "Changelog and release notes for package versions"
     }
   ]
 }
