@@ -26,6 +26,9 @@ Install directly from GitHub or locally:
 
 ```r
 # install.packages("devtools")
+devtools::install_github("Reyanda/uknpm")
+
+# Or locally:
 devtools::install_local(".")
 ```
 

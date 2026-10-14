@@ -122,6 +122,11 @@
       "path": "NEWS.md",
       "type": "documentation",
       "description": "Changelog and release notes for package versions"
+    },
+    {
+      "path": ".github/workflows/R-CMD-check.yaml",
+      "type": "ci_workflow",
+      "description": "Multi-platform GitHub Actions CI matrix running R CMD check"
     }
   ]
 }
